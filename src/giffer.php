@@ -31,20 +31,26 @@ $gc = new GifCreator();
 
 function resize($width, $height, $sourceImageWidth, $sourceImageHeight) {
 
-    if ($width == 0) {
+    if ($width == 0 && $height == 0) {
 
+        return array($sourceImageWidth, $sourceImageHeight);
+
+    } else if ($width == 0) {
+        
         $newWidth = $sourceImageWidth / ($sourceImageHeight / $height);
         return array($newWidth, $height);
-
+    
     } else if ($height == 0) {
-
+        
         $newHeight = $sourceImageHeight / ($sourceImageWidth / $width);
         return array($width, $newHeight);
-
-    } else {
-        return array($width, $height);
-    }
     
+    } else {
+
+        return array($width, $height);
+    
+    }
+
 }
 
 if (GifFrameExtractor::isAnimatedGif($src)) {
