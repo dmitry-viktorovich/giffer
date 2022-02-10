@@ -72,12 +72,12 @@ if (GifFrameExtractor::isAnimatedGif($src)) {
             $resizedFrame[0], $resizedFrame[1],
             $sourceImageWidth, $sourceImageHeight,
             );
-            imagecopymerge(
-                $resized, $watermark,
-                $resizedFrame[0] / 2 - ($waterMarkWidth / 2), $resizedFrame[1] / 2 - ($waterMarkHeight / 2), 0, 0,
-                $waterMarkWidth, $waterMarkHeight,                
-                30
-            );
+        imagecopymerge(
+            $resized, $watermark,
+            $resizedFrame[0] / 2 - ($waterMarkWidth / 2), $resizedFrame[1] / 2 - ($waterMarkHeight / 2), 0, 0,
+            $waterMarkWidth, $waterMarkHeight,                
+            30
+        );
 
         imagegif($resized, '../img/temp/' . $frameNumber . ' - frame' . '.gif');
         array_push($frames, '../img/temp/' . $frameNumber . ' - frame' . '.gif');
